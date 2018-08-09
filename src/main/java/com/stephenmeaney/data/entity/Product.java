@@ -19,7 +19,7 @@ public class Product {
 
     private double price;
 
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private List<OrderLineItem> orderLineItemList;
 
     public long getProductId() {

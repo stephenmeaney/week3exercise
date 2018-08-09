@@ -20,10 +20,10 @@ public class Account {
     @Column(name = "email_address")
     private String emailAddress;
 
-    @OneToMany(mappedBy = "account")
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     private List<Address> addressList;
 
-    @OneToMany(mappedBy = "account")
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     private List<Order> orderList;
 
     public long getAccountId() {

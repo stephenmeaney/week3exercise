@@ -18,15 +18,15 @@ public class Shipment {
     @Column(name = "delivery_date")
     private Timestamp deliveryDate;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "account_id")
     private Account account;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id")
     private Address address;
 
-    @OneToMany(mappedBy = "shipment")
+    @OneToMany(mappedBy = "shipment", cascade = CascadeType.ALL)
     private List<OrderLineItem> orderLineItemList;
 
 //    @OneToMany(mappedBy = "shipment")
