@@ -29,9 +29,6 @@ public class Shipment {
     @OneToMany(mappedBy = "shipment", cascade = CascadeType.ALL)
     private List<OrderLineItem> orderLineItemList;
 
-//    @OneToMany(mappedBy = "shipment")
-//    private List<Address> addressList;
-
 
     public long getShipmentId() {
         return shipmentId;

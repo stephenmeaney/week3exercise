@@ -56,6 +56,14 @@ public class OrderLineItem {
         this.price = price;
     }
 
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
     public Shipment getShipment() {
         return shipment;
     }

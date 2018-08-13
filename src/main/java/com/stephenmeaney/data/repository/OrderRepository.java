@@ -10,5 +10,5 @@ import java.util.List;
 @Repository
 public interface OrderRepository extends CrudRepository<Order, String> {
 
-    List<OrderSummary> findAllProjectedBy();
+    List<OrderSummary> findAllProjectedByAccount_AccountIdOrderByOrderDateAsc(long id);
 }

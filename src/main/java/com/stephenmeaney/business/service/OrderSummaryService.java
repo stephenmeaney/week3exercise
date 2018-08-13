@@ -17,7 +17,7 @@ public class OrderSummaryService {
         this.orderRepository = orderRepository;
     }
 
-    public List<OrderSummary> getOrderProjection() {
-        return orderRepository.findAllProjectedBy();
+    public List<OrderSummary> getOrderSummaryProjection(long accountId) {
+        return orderRepository.findAllProjectedByAccount_AccountIdOrderByOrderDateAsc(accountId);
     }
 }

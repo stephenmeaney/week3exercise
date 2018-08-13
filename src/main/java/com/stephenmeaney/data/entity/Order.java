@@ -15,8 +15,8 @@ public class Order {
     @Column(name = "order_date")
     private Timestamp orderDate;
 
-//    @Column(name = "total_price")
-//    private double totalPrice;
+    @Transient
+    private double totalPrice;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "account_id")
@@ -43,6 +43,15 @@ public class Order {
 
     public void setOrderDate(Timestamp orderDate) {
         this.orderDate = orderDate;
+    }
+
+    public double getTotalPrice() {
+        double calculatedTotalPrice = 0;
+        for (OrderLineItem orderLineItem : orderLineItemList) {
+            calculatedTotalPrice += orderLineItem.getTotalPrice();
+        }
+
+        return calculatedTotalPrice;
     }
 
     public Account getAccount() {

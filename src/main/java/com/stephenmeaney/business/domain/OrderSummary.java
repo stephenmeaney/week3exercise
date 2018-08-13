@@ -3,17 +3,17 @@ package com.stephenmeaney.business.domain;
 import com.stephenmeaney.data.entity.Order;
 import org.springframework.data.rest.core.config.Projection;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 @Projection(name = "OrderSummary", types = Order.class)
 public interface OrderSummary {
 
     String getOrderNumber();
+    Timestamp getOrderDate();
+    double getTotalPrice();
 
     AddressSummary getAddress();
-
-    //double getTotalPrice();
-
     List<OrderLineItemSummary> getOrderLineItemList();
 
     interface AddressSummary {
@@ -22,7 +22,6 @@ public interface OrderSummary {
         String getStateProvince();
         String getZipPostalCode();
         String getCountry();
-
     }
 
     interface OrderLineItemSummary {
@@ -30,8 +29,8 @@ public interface OrderSummary {
         double getPrice();
         double getTotalPrice();
 
-
         ProductSummary getProduct();
+        OrderShipmentSummary getShipment();
 
 
         interface ProductSummary {
@@ -40,8 +39,9 @@ public interface OrderSummary {
             double getPrice();
         }
 
-        interface ShipmentSummary {
-
+        interface OrderShipmentSummary {
+            Timestamp getShippedDate();
+            Timestamp getDeliveryDate();
         }
 
     }
