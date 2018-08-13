@@ -16,6 +16,7 @@ public class Address {
     @Column(name = "apt_building")
     private String aptBuilding;
 
+    @Column(name = "city")
     private String city;
 
     @Column(name = "state_province")

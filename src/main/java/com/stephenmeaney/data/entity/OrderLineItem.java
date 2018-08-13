@@ -17,9 +17,8 @@ public class OrderLineItem {
 
     private double price;
 
-//    @Column(name = "total_price")
-//    @Formula("quantity * price")
-//    private double totalPriceYo;
+    @Formula("quantity * price")
+    private double totalPrice;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "shipment_id")

@@ -1,4 +1,49 @@
 package com.stephenmeaney.business.domain;
 
+import com.stephenmeaney.data.entity.Order;
+import org.springframework.data.rest.core.config.Projection;
+
+import java.util.List;
+
+@Projection(name = "OrderSummary", types = Order.class)
 public interface OrderSummary {
+
+    String getOrderNumber();
+
+    AddressSummary getAddress();
+
+    //double getTotalPrice();
+
+    List<OrderLineItemSummary> getOrderLineItemList();
+
+    interface AddressSummary {
+        String getStreet();
+        String getCity();
+        String getStateProvince();
+        String getZipPostalCode();
+        String getCountry();
+
+    }
+
+    interface OrderLineItemSummary {
+        int getQuantity();
+        double getPrice();
+        double getTotalPrice();
+
+
+        ProductSummary getProduct();
+
+
+        interface ProductSummary {
+            String getName();
+            String getDescription();
+            double getPrice();
+        }
+
+        interface ShipmentSummary {
+
+        }
+
+    }
+
 }
