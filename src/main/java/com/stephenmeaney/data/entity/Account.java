@@ -26,6 +26,10 @@ public class Account {
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     private List<Order> orderList;
 
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
+    private List<Shipment> shipmentList;
+
+
     public long getAccountId() {
         return accountId;
     }
@@ -72,5 +76,13 @@ public class Account {
 
     public void setOrderList(List<Order> orderList) {
         this.orderList = orderList;
+    }
+
+    public List<Shipment> getShipmentList() {
+        return shipmentList;
+    }
+
+    public void setShipmentList(List<Shipment> shipmentList) {
+        this.shipmentList = shipmentList;
     }
 }

@@ -87,4 +87,12 @@ public class OrderLineItem {
     public void setOrder(Order order) {
         this.order = order;
     }
+
+    public String getProductName() {
+        return this.product.getName();
+    }
+
+    public String getOrderNumber() {
+        return this.order.getOrderNumber();
+    }
 }
