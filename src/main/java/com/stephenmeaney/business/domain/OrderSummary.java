@@ -1,13 +1,12 @@
 package com.stephenmeaney.business.domain;
 
-import com.stephenmeaney.data.entity.Account;
 import com.stephenmeaney.data.entity.Order;
 import org.springframework.data.rest.core.config.Projection;
 
 import java.sql.Timestamp;
 import java.util.List;
 
-@Projection(name = "OrderSummary", types = Account.class)
+@Projection(name = "OrderSummary", types = Order.class)
 public interface OrderSummary {
 
     String getOrderNumber();
